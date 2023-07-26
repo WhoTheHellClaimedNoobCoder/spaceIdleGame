@@ -26,8 +26,8 @@ let pumpJack = {
 };
 
 game.fuelGain = function() {
-    fuel += (pumpJack.boost * pumpJack.amountOwned);
-    console.log(fuel);
+    game.fuel += (pumpJack.boost * pumpJack.amountOwned);
+    console.log(game.fuel);
 };
 
-setInterval(game.fuelGain(), 1000);
+setInterval(game.fuelGain(), 100);
