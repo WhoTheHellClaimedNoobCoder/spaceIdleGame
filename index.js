@@ -7,15 +7,15 @@ let game = {
 let pumpJack = {
     price: 20,
     boost: 1,
-    status: 'open',
+    status: true,
     amountOwned: 1,
 
     pumpjackOpen: function() {
-        this.status = 'open';
+        this.status = true;
     },
 
     pumpJackClose: function() {
-        this.status = 'closed'; 
+        this.status = false; 
     },
 
     pumpJackBuy: function() {
@@ -26,10 +26,10 @@ let pumpJack = {
     },
 };
 
-;
-
-setInterval(game.fuelGain = function(){
+game.fuelGain = function(){
+    if (pumpJack.status == "") {
     game.fuel += (pumpJack.boost * pumpJack.amountOwned);
-    console.log(game.fuel);
-}, 100);
+    };
+};
 
+setInterval(game.fuelGain, 1000);
