@@ -27,9 +27,14 @@ let pumpJack = {
 };
 
 game.fuelGain = function(){
-    if (pumpJack.status == "") {
+    if (pumpJack.status == true) {
     game.fuel += (pumpJack.boost * pumpJack.amountOwned);
     };
 };
+
+game.moneyGain = function(){
+    game.moneyOwned += 1;
+};
+
 
 setInterval(game.fuelGain, 1000);
