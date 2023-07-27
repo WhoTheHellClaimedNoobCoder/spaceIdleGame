@@ -1,8 +1,11 @@
 .leftSection {
+    float: right;
+    width: 20%;
+}
+.rightSection {
     float: left;
     width: 80%;
 }
-.rightSection {
-    float: right;
-    width: 20%;
+#pumpJack {
+    
 }
