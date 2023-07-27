@@ -34,6 +34,8 @@ game.fuelGain = function(){
 
 game.moneyGain = function(){
     game.moneyOwned += 1;
+    let moneyDisplay = document.getElementById("Money")
+    moneyDisplay.innerHTML = game.moneyOwned;
 };
 
 
