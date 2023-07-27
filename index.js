@@ -4,6 +4,7 @@ let game = {
     moneyOwned: 0,
     fuel: 0,
     fuelPerSecond: 1,
+    power: 0,
 };
 
 let pumpJack = {
@@ -30,6 +31,7 @@ let pumpJack = {
 };
 
 game.fuelGain = function(){
+    game.fuelPerSecond = pumpJack.boost * pumpJack.amountOwned;
     if (pumpJack.amountOwned >= 1) {
     game.fuel += (pumpJack.boost * pumpJack.amountOwned);
     fuelDisplay.innerHTML = game.fuel;
