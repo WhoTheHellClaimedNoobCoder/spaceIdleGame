@@ -1,3 +1,5 @@
+let moneyDisplay = document.getElementById("Money");
+let fuelDisplay  = document.getElementById("Fuel");
 let game = {
     moneyOwned: 0,
     fuel: 0,
@@ -8,7 +10,7 @@ let pumpJack = {
     price: 20,
     boost: 1,
     status: true,
-    amountOwned: 1,
+    amountOwned: 0,
 
     pumpjackOpen: function() {
         this.status = true;
@@ -22,19 +24,22 @@ let pumpJack = {
         if (game.moneyOwned >= pumpJack.price) {
         game.moneyOwned -= pumpJack.price;
         this.amountOwned += 1;
+        moneyDisplay.innerHTML = game.moneyOwned;
         }
     },
 };
 
 game.fuelGain = function(){
-    if (pumpJack.status == true) {
+    if (pumpJack.amountOwned >= 1) {
     game.fuel += (pumpJack.boost * pumpJack.amountOwned);
-    };
+    fuelDisplay.innerHTML = game.fuel;
+} else {
+    //So it basically does nothing if you dont have any pumpjacks cuz u stoopid
+};
 };
 
 game.moneyGain = function(){
     game.moneyOwned += 1;
-    let moneyDisplay = document.getElementById("Money")
     moneyDisplay.innerHTML = game.moneyOwned;
 };
 
