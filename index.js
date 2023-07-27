@@ -33,7 +33,7 @@ let pumpJack = {
 game.fuelGain = function(){
     game.fuelPerSecond = pumpJack.boost * pumpJack.amountOwned;
     if (pumpJack.amountOwned >= 1) {
-    game.fuel += (pumpJack.boost * pumpJack.amountOwned);
+    game.fuel += game.fuelPerSecond;
     fuelDisplay.innerHTML = game.fuel;
 } else {
     //So it basically does nothing if you dont have any pumpjacks cuz u stoopid
