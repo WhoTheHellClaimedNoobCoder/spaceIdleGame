@@ -5,6 +5,21 @@ let game = {
     fuel: 0,
     fuelPerSecond: 1,
     power: 0,
+    stone: 0,
+
+    fuelGain: function(){
+      game.fuelPerSecond = pumpJack.boost * pumpJack.amountOwned;
+      if (pumpJack.amountOwned >= 1) {
+       game.fuel += game.fuelPerSecond;
+       fuelDisplay.innerHTML = game.fuel;
+} else {
+    //So it basically does nothing if you dont have any pumpjacks cuz u stoopid
+};
+  },
+ moneyGain:  function(){
+    game.moneyOwned += 1;
+    moneyDisplay.innerHTML = game.moneyOwned;
+},
 };
 
 let pumpJack = {
@@ -30,20 +45,20 @@ let pumpJack = {
     },
 };
 
-game.fuelGain = function(){
-    game.fuelPerSecond = pumpJack.boost * pumpJack.amountOwned;
-    if (pumpJack.amountOwned >= 1) {
-    game.fuel += game.fuelPerSecond;
-    fuelDisplay.innerHTML = game.fuel;
-} else {
-    //So it basically does nothing if you dont have any pumpjacks cuz u stoopid
-};
+let rocket = {
+   fuelReq: 500,
+   launchedAmount: 0,
+ //Make a rocket launch function that resets all player stats  
+    rocketLaunch: function() {
+      if (game.fuel >= this.fuelReq) {
+        game.stone += game.fuel^1.5;
+        this.launchedAmount += 1;
+        game.fuel = 0;
+        game.moneyOwned = 0;
+        pumpJack.amountOwned = 0;
+      };
+  
+},
 };
 
-game.moneyGain = function(){
-    game.moneyOwned += 1;
-    moneyDisplay.innerHTML = game.moneyOwned;
-};
-
-
-setInterval(game.fuelGain, 1000);
+setinterval(game.fuelGain, 1000);
